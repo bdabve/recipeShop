@@ -1,0 +1,32 @@
+body {
+    font-family: Monaco;
+}
+
+.search-div {
+    max-width: 500px;
+}
+
+.navbar {
+    padding: 0;
+}
+
+.navbar .nav-link {
+    padding: 15px 20px !important;
+}
+
+.navbar .nav-link:hover {
+    /*background-color: #006266;*/
+    background-color: #2b3035;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link.active {
+    background-color: #2f3640;
+    font-weight: bold;
+}
+
+.form-card {
+    max-width: 450px;
+    margin: auto;
+}

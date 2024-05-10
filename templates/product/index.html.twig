@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Product{% endblock %}
+
+{% block body %}
+
+<div class="alert alert-success text-center">
+    <h4>Product List</h4>
+</div>
+
+<div class="content border p-3 rounded">
+
+    <div class="d-flex p-2 pt-0 mb-2 align-items-center justify-content-between border-bottom">
+
+        <div class="input-group search-div" style="max-width: 400px;">
+            <span id="addon-wrapping" class="input-group-text"><i class="bi bi-search"></i></span>
+            <input id="searchProduct" name="search_word" class="form-control me-2" type="search" placeholder="Search">
+        </div>
+
+        <a class="link-primary link-underline-primary link-underline-opacity-0 link-underline-opacity-100-hover"
+           href="{{ path('create_product') }}">
+            <i class="bi bi-plus-lg"></i>
+            Add New Product
+        </a>
+
+    </div>
+
+    <table class="table table-hover shadow table-bordered mt-5">
+        <thead class="table-secondary">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Reference</th>
+                <th scope="col">Packaging</th>
+                <th scope="col">Qte</th>
+                <th scope="col">Price</th>
+                <th scope="col">Total</th>
+                <th scope="col">Desc</th>
+                <th scope="col">Operation</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for product in products %}
+            <tr>
+                <th scope="row">{{ product.id }}</th>
+                <td>
+                    <a class="prod-name" data-product-url="{{ path('product_detail', {id: product.id}) }}" href="#">
+                        {{ product.name  }}
+                    </a>
+                </td>
+                <td>{{ product.ref  }}</td>
+                <td>{{ product.packaging  }}</td>
+                <td>{{ product.qte }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.total }}</td>
+                <td>{{ product.description }}</td>
+                <td class="d-flex align-item-center justify-content-center">
+                    <a href="{{ path('edit_product', {'id': product.id}) }}" class="btn btn-sm btn-secondary me-3">
+                        <i class="bi bi-pencil-square"></i>
+                    </a>
+                    <a data-delete-prod-url="{{ path('delete_product', {'id': product.id}) }}" 
+                       data-prod_name="{{ product.name }}" data-prod-id="{{  product.id }}"
+                       class="delete-product btn btn-sm btn-danger">
+                        <i class="bi bi-trash"></i>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

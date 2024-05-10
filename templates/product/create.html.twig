@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Product{% endblock %}
+
+{% block body %}
+
+<div class="card form-card mb-3">
+
+    <div class="card-header text-center py-3">
+        <h4>Create Product</h4>
+    </div>
+
+    <div class="card-body">
+
+        {{ form_start(form) }}
+
+        <div class="form-floating mb-2">
+            {{ form_widget(form.name, {'attr': {'class': 'form-control', 'placeholder': 'Name'}}) }}
+            <label for="{{ form.name.vars.id }}">Product Name</label>
+        </div>
+        <div class="form-floating mb-2">
+            {{ form_widget(form.ref, {'attr': {'class': 'form-control', 'placeholder': 'Reference'}}) }}
+            <label for="{{ form.ref.vars.id }}">Reference</label>
+        </div>
+        <div class="form-floating mb-2">
+            {{ form_widget(form.packaging, {'attr': {'class': 'form-select', 'placeholder': 'Packaging'}}) }}
+            <label for="{{ form.packaging.vars.id }}">Packaging</label>
+        </div>
+
+        <div class="d-flex align-item-center mb-2">
+            <div class="form-floating me-2">
+                {{ form_widget(form.qte, {'attr': {'class': 'form-control', 'placeholder': 'Quantity'}}) }}
+                <label for="{{ form.qte.vars.id }}">Quantity</label>
+            </div>
+            <div class="form-floating">
+                {{ form_widget(form.price, {'attr': {'class': 'form-control', 'placeholder': 'Price'}}) }}
+                <label for="{{ form.price.vars.id }}">Price</label>
+            </div>
+        </div>
+
+        <div class="form-floating mb-2">
+            {{ form_widget(form.total, {'attr': {'class': 'form-control', 'placeholder': 'Total'}}) }}
+            <label for="{{ form.total.vars.id }}">Total</label>
+        </div>
+
+        <div class="form-floating mb-2">
+            {{ form_widget(form.description, {'attr': {'class': 'form-control', 'placeholder': 'Description'}}) }}
+            <label for="{{ form.description.vars.id }}">Description</label>
+        </div>
+
+    </div>
+
+    <div class="card-footer">
+        <button type="submit" class="btn btn-outline-success float-end">
+            <i class="bi bi-save"></i>
+            Create
+        </button>
+        {{ form_end(form) }}
+    </div>
+</div>
+
+{% endblock %}

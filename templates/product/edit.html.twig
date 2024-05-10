@@ -1,0 +1,66 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Product{% endblock %}
+
+{% block body %}
+
+<div class="card form-card mb-3">
+
+    <div class="card-header text-center py-3">
+        <h4>Update Product</h4>
+    </div>
+
+    <div class="card-body">
+        <!-- {# path('update_product', {'id': product.id }) #}-->
+        <form action="{{ path('update_product', {'id': product.id }) }}" method="POST">
+
+            <div class="form-floating mb-2">
+                <input id="nameInput" class="form-control" name="name" type="text" value="{{ product.name }}"
+                       placeholder="Product Name">
+                <label for="nameInput">Product Name</label>
+            </div>
+
+            <div class="form-floating mb-2">
+                <input id="refInput" class="form-control" name="ref" type="text" value="{{ product.ref }}"
+                       placeholder="Product Name">
+                <label for="refInput">Product Reference</label>
+            </div>
+
+            <div class="form-floating mb-2">
+                <select id="packagingSelect" class="form-select" name="packaging">
+                    <option value="gramme" {% if product.packaging == 'gramme'%}selected{% endif %}>Gramme</option>
+                    <option value="c.litre" {% if product.packaging == 'c.litre' %}selected{% endif %}>C. Litre</option>
+                </select>
+                <label for="packagingSelect">Packaging</label>
+            </div>
+
+            <div class="d-flex align-item-center justify-content-between mb-2">
+                <div class="form-floating me-2">
+                    <input id="qteInput" class="form-control" name="qte" type="number" value="{{ product.qte }}"
+                           placeholder="Quantity">
+                    <label for="qteInput">Quanitity</label>
+                </div>
+
+                <div class="form-floating">
+                    <input id="priceInput" class="form-control" name="price" type="text" value="{{ product.price }}"
+                           placeholder="Price">
+                    <label for="priceInput">Price</label>
+                </div>
+            </div>
+
+            <div class="form-floating mb-2">
+                <input id="totalInput" class="form-control" name="total" type="text" value="{{ product.total }}"
+                       placeholder="Total">
+                <label for="totalInput">Total</label>
+            </div>
+
+            <button type="submit" class="btn btn-outline-success float-end">
+                <i class="bi bi-floppy2"></i>
+                Update
+            </button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
