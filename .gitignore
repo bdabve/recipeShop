@@ -2,18 +2,18 @@
 ###> symfony/framework-bundle ###
 .env
 .gitignore
-.env.local
-.env.local.php
-.env.*.local
-config/secrets/prod/prod.decrypt.private.php
-public/bundles/
-var/
-vendor/
+/.env.local
+/.env.local.php
+/.env.*.local
+/config/secrets/prod/prod.decrypt.private.php
+/public/bundles/
+/var/
+/vendor/
 ###< symfony/framework-bundle ###
 
 ###> php-cs-fixer/shim ###
-.php-cs-fixer.php
-.php-cs-fixer.cache
+/.php-cs-fixer.php
+/.php-cs-fixer.cache
 ###< php-cs-fixer/shim ###
 
 ###> symfony/asset-mapper ###
